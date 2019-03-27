@@ -117,7 +117,7 @@ class plgVmPaymentPz_joomla extends vmPSPlugin {
 		$redirect_Url    = JROUTE::_ (JURI::root () . 'index.php?option=com_virtuemart&view=pluginresponse&task=pluginresponsereceived&on=' . $order['details']['BT']->order_number . '&pm=' . $order['details']['BT']->virtuemart_paymentmethod_id . '&Itemid=' . JRequest::getInt ('Itemid'));
 		$description = $method->description;
 		$ship_address = $address->address_1;
-                $hashSequence = md5( $checksumdump = $toid ."|".$totype."|".(float)$order['details']['BT']->order_total."|" . $order['details']['BT']->order_number ."|". $redirect_Url ."|". $workingkey);
+                $hashSequence = md5( $checksumdump = $toid ."|".$totype."|".number_format((float)$order['details']['BT']->order_total, 2, '.', '')."|" . $order['details']['BT']->order_number ."|". $redirect_Url ."|". $workingkey);
                
 		
 		//var_dump($checksumdump . " -- This is checksum!!!");
